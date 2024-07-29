@@ -1,9 +1,8 @@
 "use client";
+import { handleSubscribe } from "@/app/(dashboard)/action";
 import { Button } from "@/components/ui/button";
+import { priceId } from "@/utils/constants";
 import { useState } from "react";
-// import { handleSubscribe } from "../../action";
-
-const priceId = process.env.NEXT_PUBLIC_PRICE_ID;
 
 export const Pricing = () => {
   const [isDollarSelected, setIsDollarSelected] = useState<boolean>(true);
@@ -120,12 +119,12 @@ export const Pricing = () => {
                     { isDollarSelected ? "EURO" : "DOLLAR"}
                   </Button>
                 </p>
-                {/* <form action={handleSubscribe}>
-                  <input hidden value={priceId} name="price" /> */}
+                <form action={handleSubscribe}>
+                  <input hidden value={priceId} name="price" />
                   <Button className="w-full mt-4" type="submit">
                     Get access
                   </Button>
-                {/* </form> */}
+                </form>
 
                 <p className="mt-6 text-xs leading-5 text-gray-600">
                   Invoices and receipts available for easy company reimbursement

@@ -30,7 +30,7 @@ export default function NavBar({ user }: NavBarProps) {
                         </Button>
                     }
                 </div>
-            </div>;
+            </div>
         </div>
     )
 }

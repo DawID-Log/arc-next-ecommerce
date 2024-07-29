@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const priceId = process.env.NEXT_PUBLIC_PRICE_ID;
 
 export const metadata: Metadata = {
   title: "Ecommerce",
