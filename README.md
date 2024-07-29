@@ -2,7 +2,9 @@
 
 ## Account test
 Use the following account to see the enabled profile and courses:
+
 email: test@testvideo.tst
+
 password: test
 
 ## Payment service
