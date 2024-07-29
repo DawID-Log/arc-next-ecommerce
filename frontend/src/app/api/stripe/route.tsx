@@ -27,9 +27,8 @@ export async function POST(req: NextRequest) {
     switch (event.type) {
       case "invoice.payment_succeeded":
         const paymentInvoiceSucceeded = event.data.object as any;
-        console.log("paymentInvoiceSucceeded",paymentInvoiceSucceeded);
         const customerEmail: string =
-          paymentInvoiceSucceeded.customer_email || "doggett11598@6t3z.4evrmail.shop";
+          paymentInvoiceSucceeded.customer_email || "test@testvideo.tst";
 
         const { error } = await supabaseAdmin.from("subscription").upsert(
           {
@@ -81,7 +80,7 @@ export async function POST(req: NextRequest) {
         const customerSub = event.data.object as any;
 
         const customerSubEmail: string =
-          customerSub.customer_email || "doggett11598@6t3z.4evrmail.shop";
+          customerSub.customer_email || "test@testvideo.tst";
 
         const { error: errorSub } = await supabaseAdmin
           .from("subscription")
