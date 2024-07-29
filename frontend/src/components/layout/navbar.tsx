@@ -1,20 +1,34 @@
 import { Button } from "../ui/button";
-import Image from "next/image";
 import UserMenu from "./user-menu";
+import Link from "next/link";
+import { Logo } from "../icons/logo";
+import { User } from "@supabase/supabase-js";
 
 interface NavBarProps {
-    isLoggedIn: boolean
+    user?: User | null,
 }
 
-export default function NavBar({ isLoggedIn }: NavBarProps) {
+export default function NavBar({ user }: NavBarProps) {
     return (
         <div className="bg-white">
             <div className="flex max-w-7xl mx-auto p-8 items-center">
                 <div className="flex-1">
-                    <Image src="/availability-svgrepo-com.svg" width={80} height={80} alt="logo" />
+                    <Link href={"/"}>
+                        <Logo />
+                    </Link>
                 </div>
                 <div>
-                    {isLoggedIn ? <UserMenu /> : <Button variant={"outline"}>Login</Button>}
+                    {user
+                        ? <div className="flex gap-8 items-center">
+                            <Link href="/courses" className="uppercase font-bold underline hover:no-underline">Courses</Link>
+                            <UserMenu user={user} />
+                        </div>
+                        : <Button variant={"outline"} asChild>
+                            <Link href="/login">
+                                Login
+                            </Link>
+                        </Button>
+                    }
                 </div>
             </div>;
         </div>

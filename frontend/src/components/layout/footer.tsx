@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Logo } from "../icons/logo";
 
 export default function Footer() {
     return <div className="flex items-end w-full min-h-screen bg-white">
@@ -7,7 +8,7 @@ export default function Footer() {
                 className="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
                 <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
                     <a className="flex items-center justify-center font-medium text-gray-900 title-font md:justify-start">
-                        <Image src="/availability-svgrepo-com.svg" width={50} height={50} alt="logo" />
+                        <Logo width={50} height={50} />
                     </a>
                     <p className="mt-2 text-sm text-gray-500">Ecommerce and quality!</p>
                     <div className="mt-4">

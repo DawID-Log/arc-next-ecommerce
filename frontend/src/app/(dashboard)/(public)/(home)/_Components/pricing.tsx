@@ -1,9 +1,17 @@
+"use client";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 // import { handleSubscribe } from "../../action";
 
 const priceId = process.env.NEXT_PUBLIC_PRICE_ID;
 
 export const Pricing = () => {
+  const [isDollarSelected, setIsDollarSelected] = useState<boolean>(true);
+
+  const onChangeValueLabel = () => {
+    setIsDollarSelected(!isDollarSelected);
+  }
+
   return (
     <div className="bg-white py-24 sm:py-32" id="pricing">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -106,18 +114,18 @@ export const Pricing = () => {
                 </p>
                 <p className="mt-6 flex items-baseline justify-center gap-x-2">
                   <span className="text-5xl font-bold tracking-tight text-gray-900">
-                    $10/month
+                  { isDollarSelected ? "$" : "€"}10/month
                   </span>
-                  <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">
-                    EURO
-                  </span>
+                  <Button onClick={onChangeValueLabel} variant={"outline"} >
+                    { isDollarSelected ? "EURO" : "DOLLAR"}
+                  </Button>
                 </p>
                 {/* <form action={handleSubscribe}>
-                  <input hidden value={priceId} name="price" />
+                  <input hidden value={priceId} name="price" /> */}
                   <Button className="w-full mt-4" type="submit">
                     Get access
                   </Button>
-                </form> */}
+                {/* </form> */}
 
                 <p className="mt-6 text-xs leading-5 text-gray-600">
                   Invoices and receipts available for easy company reimbursement
